@@ -1,0 +1,263 @@
+html,
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto Mono', monospace;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 90px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+}
+
+.logo {
+    width: 90px;
+}
+
+.bg-bitbyt {
+    background-color: #52d6d3;
+}
+
+.bg-footer {
+    background-color: #2cbab8;
+}
+
+.bg-bitbyt-secondary {
+    background-color: #683ba3;
+    border: none;
+}
+
+.bg-bitbyt-secondary:hover{
+    background-color: #271e62;
+}
+
+.bg-bitbyt-third {
+    background-color: #52d691;
+}
+
+.purple-bitbyt {
+    color: #683ba3 !important;
+}
+
+.bg-bitbyt-purple {
+    background-color: #683ba3;
+}
+
+.h .purple-bitbyt {
+    color: #683ba3 !important;
+}
+
+.navbar {
+    min-height: 80px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn-submit {
+    background-color: #683ba3;
+    border-color: black;
+}
+
+.btn-registrer {
+    color: white !important;
+    border-radius: 50px;
+    background-color: #683ba3;
+    border-color: black;
+    padding-left: 0.9em !important;
+    padding-right: 0.9em !important;
+}
+
+.btn-registrer:hover,
+.btn-registrer:active {
+    background-color: #271e62;
+}
+
+.btn-purple {
+    color: white;
+    background-color: #683ba3;
+    border-color: black;
+}
+ 
+.btn-login {
+    width: 60%;
+}
+
+.btn-purple:hover,
+.btn-purple:active {
+    background-color: #271e62;
+}
+
+/* styles the most outer container in the navigation bar */
+.container_head {
+    background-color: #52d6d3;
+    height: 91px;
+}
+
+/* this class styles the containers in the navigation bar */
+.bottom_links {
+    text-align: center;
+}
+
+/* Upload ID was created cause it didnt work as a class */
+#upload {
+    text-align: center;
+}
+
+/* Styles the icons */
+.bottom_icons {
+    font-size: 1.6rem;
+    color: black;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Styles the text under the icons */
+.icon_text {
+    text-align: center;
+    color: black;
+    font-size: 0.7rem;
+}
+
+.navbar-toggler {
+    margin-top: 0.9rem;
+}
+
+.avatar {
+    border-radius: 90%;
+    width: 14rem;
+}
+
+.profil_brugernavn {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.under_profil {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: lightgrey;
+}
+
+.profil_variabler {
+    font-size: 1.3rem;
+    font-weight: bold;
+
+}
+
+.profil_container {
+    padding-top: 10%;
+}
+
+.icon-navbar {
+    width: 4rem;
+    padding: 0;
+}
+
+.icon-footer {
+    color: white !important;
+    /* Fix til forskellige browsers */
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.icon-footer :hover {
+    color: black;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.about_header {
+    text-decoration-line: underline solid white;
+}
+
+.about_jumbo {
+    text-align: right;
+}
+
+.navbar-default {
+    transition: 500ms ease;
+    background-color: #52d6d3;
+}
+
+.feed-card {
+    height: 406px;
+}
+
+.navbar-default.scrolled {
+    background: white;
+}
+
+.velkommen {
+    min-height: 50vh;
+}
+
+.icon-color {
+    color: #302579 !important;
+}
+
+.icon_index {
+    width: 14rem;
+    border-color: none;
+}
+
+.arrow {
+    width: 2rem;
+    border-color: none;
+}
+
+
+.faq_box {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.head_faq {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.p_faq {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-control{
+    width:80%;
+}
+
+.bd-placeholder-img {
+    object-fit: cover;
+}
+.btn-bredde {
+    width: 30%;
+    margin-left: 35%;
+}
+
+.modal-popup {
+    width= 100%; 
+    height= 80vh;
+}
