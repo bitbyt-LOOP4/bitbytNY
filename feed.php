@@ -43,7 +43,7 @@ $user_id = $_SESSION['user_id'];
              $query = "SELECT * FROM `product` Offer
                             JOIN `transactions` T ON Offer.product_id = T.product2_id
                             JOIN `product` Tilbud ON Tilbud.product_id = T.product1_id
-                        WHERE Offer.kid_id = '$user_id'"; 
+                        WHERE Offer.kid_id = '$user_id' AND kid_approve='0'"; 
                      
 
     
