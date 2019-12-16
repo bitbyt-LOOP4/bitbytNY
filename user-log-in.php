@@ -50,21 +50,40 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 ?>
 
 
-<div class="container col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4">
+<div class="container col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 pb-5">
     <form class="form-signin container" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        <h1 class="h3 my-3 pt-5 font-weight-normal">Log ind</h1>
+        <h1 class="h3 my-3 pt-5 font-weight-normal">Log ind som barn</h1>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="username" name="username" id="inputUsername" class="form-control mb-2" placeholder="Brugernavn" value="<?php echo $kid_username; ?>" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control  mb-2" placeholder="Password" required>
+        <input type="password" name="password" id="inputPassword" class="form-control  mb-2" placeholder="Kodeord" required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember" name="remember"> Husk mig </label>
         </div>
-        <button class="btn-submit btn btn-md btn-primary btn-login" type="submit">Log ind</button>
+        <button class="btn-login btn-submit btn btn-md btn-primary" type="submit">Log ind</button>
     </form>
 </div>
-
+<a href="./parent-login.php">
+    <div class="container pb-1">
+        <div class="jumbotron row d-sm-none">
+            <h6 class="col-9 mt-3">Forælder? Log ind her</h6>
+            <img class="col-3" src="./images/003-husband.svg" alt="Forælder" style="max-height: 3em">
+        </div>
+        <div class="jumbotron d-none d-sm-block d-md-none">
+            <div class="row">
+                <h4 class="col-9 mt-3">Forælder? Log ind her</h4>
+                <img class="col-2" src="./images/003-husband.svg" alt="Forælder" style="max-height: 5em">
+            </div>
+        </div>
+        <div class="jumbotron d-none d-md-block">
+            <div class="row">
+                <h3 class="col-md-9 mt-4 pl-4">Forælder? Log ind her</h3>
+                <img class="col-md-2" style="max-height: 5em" src="./images/003-husband.svg" alt="Forælder">
+            </div>
+        </div>
+    </div>
+</a>
 <?php
 require_once('includes/footer.php');
 ?>
