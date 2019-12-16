@@ -37,7 +37,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
                 if (isset($_POST['remember'])) {
                     $cookie_name = 'login';
                     $cookie_value = $kid_username;
-                    setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
+                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
                     header('Location: feed.php');
                 }
                 else {

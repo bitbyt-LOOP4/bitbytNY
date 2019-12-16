@@ -60,7 +60,7 @@
  * Navbar
  */
 
-.navbar-brand {
+.navbar-brand1 {
     padding-top: .75rem;
     padding-bottom: .75rem;
     font-size: 1rem;
@@ -95,4 +95,8 @@
 
 .border-bottom {
     border-bottom: 1px solid #e5e5e5;
+}
+
+.bg-mork {
+    background-color: rgba(0, 0, 0, .25) !important;
 }
