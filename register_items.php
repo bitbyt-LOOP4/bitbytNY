@@ -52,6 +52,7 @@ require_once('includes/header.php');
             else {
               
                 echo "<h2 class='bg-bitbyt text-center'>Dit opslag er nu lagt op!</h2>";
+                echo "<div class=text-center>" . "<img src=".$image_path." height=200 width=300" . "' class='img_upload'/>" . "</div>";
             }
             }
             else {
@@ -138,7 +139,7 @@ require_once('includes/header.php');
                 <br>
                 <br>
                 <input type="text" name="image_name" placeholder="Giv billedet et navn" class="image-name" required>
-
+                <br>
  
             </div>
 
