@@ -13,27 +13,41 @@ $user_id = $_SESSION['user_id'];
         $result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
     }
+    if (isset($_POST["godkendtsubmit"])) {
+        echo 'Godkendt';
+        $trans_id = $_POST["trans_id"];
+        echo $trans_id;
+    /*        $query = "UPDATE transactions 
+                      SET kid_approve = '1'  
+                      WHERE trans_id = '1';
+            $result = mysqli_query($con, $query);
+	if (!$result) die(mysqli_error($con)); 
+        */
+    }
+    
+    if (isset($_POST["afvissubmit"])) {
+        echo 'Afvist';
+        $trans_id = $_POST["trans_id"];
+        echo $trans_id;
+    }
 ?>
 <!-- Simon -->
 <!-- Feed som viser hvad andre tilbyder dig i bytte for en af dine ting ------->
 
-<!-- container der indeholder artikler -->
+<!-- container der indeholder bytteanmodninger -->
 <div class="container">
     <div class="row">
-        <!-- LOOP der genere artikler -->
+        <!-- LOOP der genere bytteanmodninger -->
         <?php
                // Går ind i databasen og henter produkter fra vedkommende som har anmodet om et byt    
-              $query = "SELECT Tilbud.* FROM `product` Tilbud
-                            JOIN `transactions` T ON Tilbud.product_id = T.product1_id
-                            JOIN `product` Offer ON Offer.product_id = T.product2_id
-                        WHERE Offer.kid_id = '$user_id'";
+             $query = "SELECT * FROM `product` Offer
+                            JOIN `transactions` T ON Offer.product_id = T.product2_id
+                            JOIN `product` Tilbud ON Tilbud.product_id = T.product1_id
+                        WHERE Offer.kid_id = '$user_id' AND kid_approve='0'"; 
                      
+
     
-                    /* Bruges hvis der sættes kid_id ind i transactions i databasen
-                    
-                    SELECT Tilbud.* FROM `Product` Tilbud
-                           JOIN `Transactions` T ON Tilbud.product_id = T.product1_id  
-                        WHERE T.kid2_id = '$user_id'  */
+    
         
 	$result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
@@ -41,21 +55,30 @@ $user_id = $_SESSION['user_id'];
 
                      
            	 if ($rows > 0) { 
+                 ?>
+        
+                <header class="container p-5 d-none d-sm-block">
+            <h1 class="display-4">Det tilbyder andre dig</h1>
+        </header>
+        <header class="container-fluid pb-5 pt-4 d-sm-none">
+            <h1 class="display-6">Det tilbyder andre dig</h1>
+        </header>
+        
+                 
+                 
+        <?php         
                 while($row = mysqli_fetch_array($result)) {
                     $product_name = $row['product_name'];
                     $description = $row['description'];
                     $image_link = $row['image_link'];
                     $price = $row['price'];
                     $product_id = $row['product_id'];
+                    $trans_id = $row['trans_id'];
+                    
         ?>
 
-        <header class="container p-5 d-none d-sm-block">
-            <h1 class="display-4">Det tilbyder andre dig</h1>
-        </header>
-        <header class="container-fluid pb-5 pt-4 d-sm-none">
-            <h1 class="display-6">Det tilbyder andre dig</h1>
-        </header>
-        <div class="col-md-4 col-lg-3">
+
+        <div class="col-lg-3">
             <div class="card mb-4 shadow-sm">
 
                 <h4> <?php echo $product_name?> </h4>
@@ -64,11 +87,12 @@ $user_id = $_SESSION['user_id'];
                 <div class="card-body">
                     <p class="card-text text-truncate">
                         <?php echo $description ?>
+                        <?php echo $trans_id ?>
 
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary view_data" id="<?php  echo $row['product_id']?>">Se vare</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary view_trans" id="<?php  echo $row['trans_id']?>">Se Anmodning</button>
 
                         </div>
                         <small class=" text-muted">Herning Spejderne</small>
@@ -83,8 +107,8 @@ $user_id = $_SESSION['user_id'];
     } 
     ?>
 
-        <div id="dataModal" class="modal fade">
-            <div class="modal-dialog" id="product_detail">
+        <div id="transModal" class="modal fade ">
+            <div class="modal-dialog modal-xl" id="trans_detail">
             </div>
         </div>
     </div>
@@ -93,17 +117,17 @@ $user_id = $_SESSION['user_id'];
 <script>
     $(document).ready(function() {
         console.log("ready!");
-        $('.view_data').click(function() {
+        $('.view_trans').click(function() {
             var product_id = $(this).attr("id");
             $.ajax({
-                url: "popup.php",
+                url: "transmodal.php",
                 method: "post",
                 data: {
                     product_id: product_id
                 },
                 success: function(data) {
-                    $('#product_detail').html(data);
-                    $('#dataModal').modal("show");
+                    $('#trans_detail').html(data);
+                    $('#transModal').modal("show");
                 }
             });
         });
