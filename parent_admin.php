@@ -1,8 +1,8 @@
 <?php                                                   // Jesper & Oliver
     $page='Forældre adminstration';
     require_once('includes/header_parent.php');
-    if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];} 
+    if (isset($_SESSION['parent_id'])) {
+    $parent_id = $_SESSION['parent_id'];} 
     ?>
 
 <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -11,7 +11,7 @@
            $barn1 = "SELECT * FROM `kid_info`
     JOIN `parent` ON parent.kid_id = kid_info.kid_id OR parent.kid_id2 = kid_info.kid_id
     JOIN `kid` ON kid.user_id = kid_info.kid_id
-    WHERE parent.parent_id = 31";
+    WHERE parent.parent_id = '$parent_id'";
     $result1 = mysqli_query($con, $barn1);
         
     if (!$result1) die(mysqli_error($con));

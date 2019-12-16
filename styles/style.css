@@ -21,6 +21,22 @@ body {
     margin-bottom: 90px;
 }
 
+a {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -72,14 +88,14 @@ body {
 
 .btn-submit {
     background-color: #683ba3;
-    border-color: black;
+    border-color: #683ba3 !important;
 }
 
 .btn-registrer {
     color: white !important;
     border-radius: 50px;
     background-color: #683ba3;
-    border-color: black;
+    border-color: #683ba3;
     padding-left: 0.9em !important;
     padding-right: 0.9em !important;
 }
@@ -87,17 +103,25 @@ body {
 .btn-registrer:hover,
 .btn-registrer:active {
     background-color: #271e62;
+    border-color: #271e62;
 }
 
 .btn-purple {
     color: white;
     background-color: #683ba3;
-    border-color: black;
+    border-color: #683ba3;
 }
 
 .btn-login {
     width: 60%;
+    border-color: #683ba3;
 }
+
+.btn-login:hover,
+.btn-login:active {
+    background-color: #271e62;
+}
+
 
 .btn-purple:hover,
 .btn-purple:active {
@@ -262,11 +286,13 @@ body {
     width=100%;
     height=80vh;
 }
-.fa-exchange-alt{
+
+.fa-exchange-alt {
     padding-top: 200px;
     font-size: 10em;
 }
-.img_upload{
+
+.img_upload {
     border: solid black 1px;
-   
+
 }

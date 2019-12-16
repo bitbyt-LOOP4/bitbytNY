@@ -20,7 +20,7 @@ require_once('includes/header.php');
     //Dette er nødvendigt fordi at de to registreringer er sepperate
     $kidID = $_SESSION['kidID'];
    
-    $hash = password_hash('$password', PASSWORD_DEFAULT);
+    $hash = password_hash($password, PASSWORD_DEFAULT);
           
          
 
