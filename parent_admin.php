@@ -9,9 +9,9 @@
 
     <?php 
            $barn1 = "SELECT * FROM `kid_info`
-    JOIN `parent` ON parent.kid_id = kid_info.kid_id OR parent.kid_id2 = kid_info.kid_id
-    JOIN `kid` ON kid.user_id = kid_info.kid_id
-    WHERE parent.parent_id = '$parent_id'";
+                            JOIN `parent` ON parent.kid_id = kid_info.kid_id OR parent.kid_id2 = kid_info.kid_id
+                            JOIN `kid` ON kid.user_id = kid_info.kid_id
+                    WHERE parent.parent_id = '$parent_id'";
     $result1 = mysqli_query($con, $barn1);
         
     if (!$result1) die(mysqli_error($con));
