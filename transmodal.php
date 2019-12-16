@@ -64,7 +64,7 @@
             <div Class="container">
                 <div class="row">
                     <div class="col-md-5">
-            <h3>Amoders vare:</h3>
+            <h3>Anmoders vare:</h3>
             <h4><?php echo $product_name?></h4>
             <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top modal-popup mb-1" alt="Lego">
             <p><?php echo $description?></p>

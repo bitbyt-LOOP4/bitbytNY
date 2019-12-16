@@ -14,21 +14,22 @@ $user_id = $_SESSION['user_id'];
 	if (!$result) die(mysqli_error($con));
     }
     if (isset($_POST["godkendtsubmit"])) {
-        echo 'Godkendt';
         $trans_id = $_POST["trans_id"];
-        echo $trans_id;
-    /*        $query = "UPDATE transactions 
+           $query = "UPDATE transactions 
                       SET kid_approve = '1'  
-                      WHERE trans_id = '1';
+                      WHERE trans_id = '$trans_id'";
             $result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con)); 
-        */
+        
     }
     
     if (isset($_POST["afvissubmit"])) {
-        echo 'Afvist';
         $trans_id = $_POST["trans_id"];
-        echo $trans_id;
+        $query = "UPDATE transactions 
+                      SET kid_approve = '2'  
+                      WHERE trans_id = '1'";
+            $result = mysqli_query($con, $query);
+	if (!$result) die(mysqli_error($con));
     }
 ?>
 <!-- Simon -->
@@ -87,7 +88,7 @@ $user_id = $_SESSION['user_id'];
                 <div class="card-body">
                     <p class="card-text text-truncate">
                         <?php echo $description ?>
-                        <?php echo $trans_id ?>
+                        
 
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
@@ -164,7 +165,7 @@ $user_id = $_SESSION['user_id'];
 			$price = $row['price'];
             $product_id = $row['product_id'];
 ?>
-        <div class="col-md-4 col-lg-3 feed-card pb-4">
+        <div class="col-md-4 col-lg-3 feed-card pb-4 view_data" id="<?php  echo $row['product_id']?>">
             <div class="card mb-4 shadow-sm h-100">
 
                 <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>
