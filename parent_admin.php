@@ -2,7 +2,7 @@
     $page='Forældre adminstration';
     require_once('includes/header_parent.php');
     if (isset($_SESSION['parent_id'])) {
-    $parent_id = $_SESSION['parent_id'];} 
+    $parent_id = $_SESSION['parent_id']; 
     ?>
 
 <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -145,6 +145,22 @@
         ?>
 </main>
 
+<?php require_once('includes/footer_parent.php') ?>
+
 <?php 
-require_once('includes/footer_parent.php')
-    ?>
+    die();
+    }
+elseif (!isset($_SESSION['parent_id'])) {
+	?>
+<div class="container py-5">
+    <div class=jumbotron>
+        <h2>Du har ikke adgang til denne side. Venligst <a href="parent-login.php">log ind</a> først.</h2>
+    </div>
+</div>
+
+
+<?php
+}
+require_once('includes/footer_parent.php');
+die();
+?>
