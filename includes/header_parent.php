@@ -58,7 +58,7 @@ require_once('conn.php');
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link active" href="./parent_admin.php">
                         <span data-feather="home"></span>
                         Overblik <span class="sr-only">(current)</span>
                     </a>
@@ -70,7 +70,7 @@ require_once('conn.php');
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="./parent_dine_born.php">
                         <span data-feather="users"></span>
                         Dine børn
                     </a>
