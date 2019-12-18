@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('conn.php');
+require_once('conn.php'); 
+$pg = basename(substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'.'))); // get file name from url and strip extension
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@ require_once('conn.php');
     </nav>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-md-none">
-        <a class="navbar-brand" href="#">Bitbyt.dk</a>
+        <a class="navbar-brand" href="./parent_admin.php">Bitbyt.dk</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,9 +59,9 @@ require_once('conn.php');
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="./parent_admin.php">
+                    <a class="nav-link <?php if($pg=='parent_admin'){?>active<?php }?>" href="./parent_admin.php">
                         <span data-feather="home"></span>
-                        Overblik <span class="sr-only">(current)</span>
+                        Overblik
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,7 +71,7 @@ require_once('conn.php');
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./parent_dine_born.php">
+                    <a class="nav-link <?php if($pg=='parent_dine_born'){?>active<?php }?>" href="./parent_dine_born.php">
                         <span data-feather="users"></span>
                         Dine børn
                     </a>
@@ -99,14 +100,13 @@ require_once('conn.php');
             </ul>
         </div>
     </nav>
-
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link <?php if($pg=='parent_admin'){?>active<?php }?>" href="./parent_admin.php">
                                 <span data-feather="home"></span>
                                 Overblik <span class="sr-only">(current)</span>
                             </a>
@@ -118,7 +118,7 @@ require_once('conn.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?php if($pg=='parent_dine_born'){?>active<?php }?>" href="./parent_dine_born.php">
                                 <span data-feather="users"></span>
                                 Dine børn
                             </a>

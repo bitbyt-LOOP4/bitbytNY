@@ -71,7 +71,7 @@
          }
             }
             ?>
-            <div class="container pt-3 px-0">
+            <div class="container pt-3 ml-0 px-0">
                 <h5>Opdater oplysninger</h5>
             </div>
             <div class="container-fluid pt-3 px-0">
