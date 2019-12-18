@@ -32,64 +32,47 @@
         <div class="container-fluid px-0">
             <p>Her kan du se hvad dit barn har til salg</p>
             <!-- Byttegodkendelse ------------------------------------------>
+            <!-- container der indeholder artikler -->
             <div class="container">
                 <div class="row">
-                    <!-- LOOP der genere bytteanmodninger -->
+                    <!-- LOOP der genere artikler -->
                     <?php
-               // Går ind i databasen og henter produkter fra vedkommende som har anmodet om et byt    
-             $query = "SELECT * FROM `product` Offer
-                            JOIN `transactions` T ON Offer.product_id = T.product2_id
-                            JOIN `product` Tilbud ON Tilbud.product_id = T.product1_id
-                        WHERE Offer.kid_id = '$user_id' AND kid_approve='0'"; 
-                     
-
-    
-    
+                   
+              $query = "SELECT * FROM `product`
+                        JOIN `parent` ON product.kid_id = parent.kid_id
+                        WHERE parent_id = '$parent_id'";
         
 	$result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
 	else ($rows = mysqli_num_rows($result));
-
                      
            	 if ($rows > 0) { 
-                 ?>
-                    <header class="container-fluid pb-5 pt-4 d-sm-none">
-                        <h1 class="display-6">Det tilbyder andre dig</h1>
-                    </header>
-
-
-
-                    <?php         
                 while($row = mysqli_fetch_array($result)) {
                     $product_name = $row['product_name'];
                     $description = $row['description'];
                     $image_link = $row['image_link'];
                     $price = $row['price'];
                     $product_id = $row['product_id'];
-                    $trans_id = $row['trans_id'];
-                    
+                    $placeholder = '';
         ?>
+                    <div class="col-md-4 col-lg-3 feed-card pb-4">
+                        <div class="card mb-4 shadow-sm h-100">
 
-
-                    <div class="col-lg-3">
-                        <div class="card mb-4 shadow-sm">
-
-                            <h4> <?php echo $product_name?> </h4>
+                            <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>
 
                             <img src="<?php echo $image_link;?> " class="bd-placeholder-img card-img-top" width="100%" height="225" alt="test">
                             <div class="card-body">
                                 <p class="card-text text-truncate">
                                     <?php echo $description ?>
 
-
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary view_trans" id="<?php  echo $row['trans_id']?>">Se Anmodning</button>
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary view_data" user="<?php  echo $user_id?>" id="<?php  echo $row['product_id']?>">Se vare</button>
 
                                     </div>
-                                    <small class=" text-muted">Herning Spejderne</small>
-
+                                    <small class=" text-muted">Rørkjær Skole</small>
 
                                 </div>
                             </div>
@@ -97,43 +80,48 @@
                     </div>
                     <?php 
         }
-    } 
+    }
+    else {
+        $placeholder = 'Der er ingen varer at vise';
     ?>
+                    <div class="col-1 col-md-3"></div>
+                    <div class="jumbotron text-muted text-center my-4 col-10 col-md-6">
+                        <p> <?php echo $placeholder ?> </p>
+                    </div>
+                    <div class="col-1 col-md-3"></div>
+                    <?php } ?>
 
-                    <div id="transModal" class="modal fade ">
-                        <div class="modal-dialog modal-xl" id="trans_detail">
+
+                    <div id="dataModal" class="modal fade">
+                        <div class="modal-dialog" id="product_detail">
                         </div>
                     </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            console.log("ready!");
+                            $('.view_data').click(function() {
+                                var product_id = $(this).attr("id");
+                                $.ajax({
+                                    url: "popup.php",
+                                    method: "post",
+                                    data: {
+                                        product_id: product_id
+                                    },
+                                    success: function(data) {
+                                        $('#product_detail').html(data);
+                                        $('#dataModal').modal("show");
+                                    }
+                                });
+                            });
+                        });
+
+                    </script>
                 </div>
             </div>
 
-            <script>
-                $(document).ready(function() {
-                    console.log("ready!");
-                    $('.view_trans').click(function() {
-                        var product_id = $(this).attr("id");
-                        $.ajax({
-                            url: "transmodal.php",
-                            method: "post",
-                            data: {
-                                product_id: product_id
-                            },
-                            success: function(data) {
-                                $('#trans_detail').html(data);
-                                $('#transModal').modal("show");
-                            }
-                        });
-                    });
-                });
-
-            </script>
 
 
-
-
-            <div>
-
-            </div>
         </div>
 
     </div>
@@ -152,7 +140,7 @@
     }
 elseif (!isset($_SESSION['parent_id'])) {
 	?>
-<div class="container py-5">
+<div class="container px-5 py-5">
     <div class=jumbotron>
         <h2>Du har ikke adgang til denne side. Venligst <a href="parent-login.php">log ind</a> først.</h2>
     </div>
