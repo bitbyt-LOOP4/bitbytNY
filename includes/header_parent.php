@@ -65,7 +65,7 @@ $pg = basename(substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'.')))
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="./bytcoin.php">
                         <span data-feather="dollar-sign"></span>
                         Bytcoins
                     </a>
@@ -112,7 +112,7 @@ $pg = basename(substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'.')))
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./bytcoin.php">
                                 <span data-feather="dollar-sign"></span>
                                 Bytcoins
                             </a>
