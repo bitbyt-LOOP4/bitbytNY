@@ -64,7 +64,7 @@ require_once('conn.php');
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="./bytcoin.php">
                         <span data-feather="dollar-sign"></span>
                         Bytcoins
                     </a>
@@ -112,7 +112,7 @@ require_once('conn.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./bytcoin.php">
                                 <span data-feather="dollar-sign"></span>
                                 Bytcoins
                             </a>
