@@ -4,15 +4,18 @@ require_once('includes/header.php');
 if(isset($_SESSION['user_id'])) {
     header('Location: feed.php');
 }
-if (isset($_COOKIE['login'])) {
-	$kid_username = $_COOKIE['login'];
+if(isset($_SESSION['parent_id'])) {
+    header('Location: parent_admin.php');
+} 
+if (isset($_COOKIE['login-parent'])) {
+	$parent_email = $_COOKIE['login-parent'];
 } else {
-	$kid_username = '';
+	$parent_email = '';
 }
-if(isset($_POST['username']) && isset($_POST['password'])) {
-    $kid_username = $_POST['username'];
+if(isset($_POST['email']) && isset($_POST['password'])) {
+    $parent_email = $_POST['email'];
     $password = $_POST['password'];
-    $query = "SELECT * FROM kid WHERE username = '$kid_username'";
+    $query = "SELECT * FROM parent WHERE email = '$parent_email'";
     $result = mysqli_query($con, $query);
     if (!$result){
         echo "MySQL Error: " . mysqli_error($con);
@@ -25,23 +28,23 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             echo '<script>alert("Denne bruger eksiterer ikke")</script>';
         }
         while($row = mysqli_fetch_assoc($result)){
-            $kid_username = $row['username'];
+            $parent_email = $row['email'];
             $database_password = $row['password'];
-            $user_id = $row['user_id'];
+            $parent_id = $row['parent_id'];
             $token = password_verify($password, $database_password);
             if ($token != $password) {
                     echo '<script>alert("Forkert brugernavn eller kodeord")</script>';
             }
             if ($token == $password) {
-                $_SESSION['user_id'] = $user_id;
+                $_SESSION['parent_id'] = $parent_id;
                 if (isset($_POST['remember'])) {
-                    $cookie_name = 'login';
-                    $cookie_value = $kid_username;
+                    $cookie_name = 'login-parent';
+                    $cookie_value = $parent_email;
                     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-                    header('Location: feed.php');
+                    header('Location: parent_admin.php');
                 }
                 else {
-                    header('Location: feed.php');
+                    header('Location: parent_admin.php');
                 }
             }
         }
@@ -52,9 +55,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
 <div class="container col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 pb-5">
     <form class="form-signin container" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        <h1 class="h3 my-3 pt-5 font-weight-normal">Log ind som barn</h1>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="username" name="username" id="inputUsername" class="form-control mb-2" placeholder="Brugernavn" value="<?php echo $kid_username; ?>" required autofocus>
+        <h1 class="h3 my-3 pt-5 font-weight-normal">Forældre log-in</h1>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" name="email" id="inputEmail" class="form-control mb-2" placeholder="Email" value="<?php echo $parent_email; ?>" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control  mb-2" placeholder="Kodeord" required>
         <div class="checkbox mb-3">
@@ -64,26 +67,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         <button class="btn-login btn-submit btn btn-md btn-primary" type="submit">Log ind</button>
     </form>
 </div>
-<a href="./parent-login.php">
-    <div class="container pb-1">
-        <div class="jumbotron row d-sm-none">
-            <h6 class="col-9 mt-3">Forælder? Log ind her</h6>
-            <img class="col-3" src="./images/003-husband.svg" alt="Forælder" style="max-height: 3em">
-        </div>
-        <div class="jumbotron d-none d-sm-block d-md-none">
-            <div class="row">
-                <h4 class="col-9 mt-3">Forælder? Log ind her</h4>
-                <img class="col-2" src="./images/003-husband.svg" alt="Forælder" style="max-height: 5em">
-            </div>
-        </div>
-        <div class="jumbotron d-none d-md-block">
-            <div class="row">
-                <h3 class="col-md-9 mt-4 pl-4">Forælder? Log ind her</h3>
-                <img class="col-md-2" style="max-height: 5em" src="./images/003-husband.svg" alt="Forælder">
-            </div>
-        </div>
-    </div>
-</a>
+
 <?php
 require_once('includes/footer.php');
 ?>
