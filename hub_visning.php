@@ -24,7 +24,7 @@ function get_post($con, $var) {
    <form method="post" id="hub_id_form" enctype="multipart/form-data">
     <div class="form-group">
      <label>Vælg de hubs som du ønsker at benytte</label>
-     <select id="hub_id" name="hub_id" multiple class="form-control" >
+     <select name="hub_id[]" placeholder="Hubs" class="selectpicker" multiple data-live-search="true" data-selected-text-format="placeholder">
          <?php 
                     $query = "SELECT * from hubs ORDER BY postal_code";    
                     $result = mysqli_query($con, $query);
@@ -53,45 +53,26 @@ function get_post($con, $var) {
    <br />
   </div>
 
-<?php 
-    if (isset($_POST['submit'])){
-        
-    if (isset($_POST['hub_id'])){
-          
- //$hub_name = get_post($con, 'hub_name');
- $hub_id = get_post($con, 'hub_id');
- $kid_id = $_SESSION['user_id'];
-        
+
+<?php
+$kid_id = $_SESSION['user_id'];
 
 
-
-
-$query = "INSERT INTO kid_hub(hub_id, kid_id) VALUES ('$hub_id', '$kid_id')";
-     $result = mysqli_query($con, $query);
-            if (!$result) die (mysqli_error($con));
-            else {
-              
-                echo "<h2 class='text-center'>Du er nu registreret på de valgte hubs</h2>";
-            }
-
-    
+if(isset($_POST["hub_id"]))
+{
+ $hub_id = '';
+ foreach($_POST["hub_id"] as $row)
+ {
+  $hub_id .= $row . ', ';
+ }
+ $hub_id = substr($hub_id, 0, -2);
+ $query = "INSERT INTO kid_hub(hub_id, kid_id) VALUES('".$hub_id."', '$kid_id')";
+ if(mysqli_query($con, $query))
+ {
+  echo 'Data Inserted';
+ }
 }
-    }
-    ?>
-     
- 
-
-<script>
-$(document).ready(function(){
- console.log("top");
-    $('#hub_id').multiselect({
-  nonSelectedText: 'Vælg hub',
-  enableFiltering: true,
-  enableCaseInsensitiveFiltering: true,
-  buttonWidth:'400px'
- });
- });
-</script>
+?>
 
 
 
