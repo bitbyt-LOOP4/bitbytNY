@@ -129,7 +129,9 @@ if(isset($_SESSION['user_id'])) {
     <!-- Link til jquery og js ------------------------------------------>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <!-- Bootstrap CSS -------------------------------------------------->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
@@ -144,6 +146,7 @@ if(isset($_SESSION['user_id'])) {
 
     <!-- Vores CSS ------------------------------------------------------>
     <link rel="stylesheet" href="styles/style.css">
+
     <!-- Kilde til fontawesome ikoner ----------------------------------->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Google fonts ----->
