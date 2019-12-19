@@ -2,6 +2,19 @@
 session_start();
 require_once('conn.php');
 if(isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];  
+    $query = "SELECT bytcoin 
+              FROM kid_info 
+              WHERE kid_id = '$user_id'";
+        $result = mysqli_query($con, $query);
+        if (!$result){ die(mysqli_error($con));}
+            
+        else  { 
+            $row = mysqli_fetch_assoc($result);
+
+            $bytcoin = $row['bytcoin'];
+             }
+    
     /* Jesper/ Variabel til at styre navbaren */
     $menu = '
            <!--Jesper/ Det her er til top navigationen på computeren når man er logget ind-------------->
@@ -12,10 +25,20 @@ if(isset($_SESSION['user_id'])) {
                     <img src="images/logo_transparent1.png" alt="logo" class="logo">
                 </a>
             </div>
+            
+  
             <ul class="nav navbar-right">
+            <li>
+            <br>
+            <a href="parent-login.php" class="nav-link my-2 icon-navbar icon_text bytcoin">
+            ' . $bytcoin . '
+            <img src="images/bitcoin (1).svg" class="coin">
+                         </a>
+          
+            </li>
                 <li>
                     <a href="feed.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-home bottom_icons icon-color"></i><br>
-                        Hjem</a>
+                        Hjem </a>
                 </li>
                 <li>
                     <a href="register_items.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-plus-circle bottom_icons icon-color"></i><br>
@@ -37,6 +60,7 @@ if(isset($_SESSION['user_id'])) {
                         <a href="logout.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-sign-out-alt bottom_icons icon-color"></i><br>
                             Log ud</a>
                     </li>
+                    
             </ul>
         </div>
     </nav>
@@ -78,7 +102,9 @@ if(isset($_SESSION['user_id'])) {
             </div>
         </div>
     </nav>  
-    ';
+';
+
+    
 } else /* Hvis brugeren ikke er logget ind vises denne */ { 
     $menu = '
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-bitbyt navbar-default">

@@ -28,12 +28,16 @@ if (isset($_POST["bytcoin"])){
                     SET bytcoin = '$bytcoin' + '$bytcoin1'
                     WHERE kid_id = '$user_id'";
         $result = mysqli_query($con, $query1);
-        if (!$result) die (mysqli_error($con));{
-            $var1 = ''
-        }
-        else {
-            $var1 = '"Du har nu overført " . $bytcoin . " Bytcoins!" . "<br>" . $first_name . " " . $last_name . " har nu " . ($bytcoin+$bytcoin1) . " Coins!";'
-        }
+        if (!$result) {  die (mysqli_error($con));  
+            echo "FEJL";
+             }
+            
+        else  
+            echo "Du har nu overført " . $bytcoin . " Bytcoins!" . "<br>" . $first_name . " " . $last_name . " har nu " . ($bytcoin+$bytcoin1) . " Coins! ";
+             
+            
+         
+        
        
     }
 }
