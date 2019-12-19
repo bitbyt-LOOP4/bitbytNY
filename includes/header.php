@@ -132,6 +132,16 @@ if(isset($_SESSION['user_id'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS -------------------------------------------------->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
+
     <!-- Vores CSS ------------------------------------------------------>
     <link rel="stylesheet" href="styles/style.css">
     <!-- Kilde til fontawesome ikoner ----------------------------------->
@@ -147,6 +157,7 @@ if(isset($_SESSION['user_id'])) {
             $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
         });
     }
+
 </script>
 
 <body>
