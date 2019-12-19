@@ -17,9 +17,15 @@ function get_post($con, $var) {
 }
 
 ?>
-<select class="mdb-select md-form" multiple searchable="Search here..">
-  <option value="" disabled selected>Choose your country</option>
- <?php 
+ 
+  <div class="container">
+   <h2 align="center">Hubs</h2>
+   <br /><br />
+   <form method="post" id="hub_id_form" enctype="multipart/form-data">
+    <div class="form-group">
+     <label>Vælg de hubs som du ønsker at benytte</label>
+     <select id="hub_id" name="hub_id" multiple class="form-control" >
+         <?php 
                     $query = "SELECT * from hubs ORDER BY postal_code";    
                     $result = mysqli_query($con, $query);
                     $rows = mysqli_num_rows($result);
@@ -34,13 +40,18 @@ function get_post($con, $var) {
          <?php
          }
                             ?>
-</select>
+     </select>
+     <!--  <input type="hidden" name="hub_id[]" value="<?php echo $hub_id ?>" />-->
  
-
-<label class="mdb-main-label">Label example</label>
-<button class="btn-save btn btn-primary btn-sm">Save</button>
-
-
+        
+    </div>
+         <button class="btn btn-primary" name="submit" type="submit">Upload</button>
+    <!--<div class="form-group">
+     <input type="submit" class="btn btn-info view_data" name="submit" value="Submit" />
+    </div>-->
+   </form>
+   <br />
+  </div>
 
 <?php 
     if (isset($_POST['submit'])){
@@ -71,9 +82,15 @@ $query = "INSERT INTO kid_hub(hub_id, kid_id) VALUES ('$hub_id', '$kid_id')";
  
 
 <script>
-$(document).ready(function() {
-$('.mdb-select').materialSelect();
-});
+$(document).ready(function(){
+ console.log("top");
+    $('#hub_id').multiselect({
+  nonSelectedText: 'Vælg hub',
+  enableFiltering: true,
+  enableCaseInsensitiveFiltering: true,
+  buttonWidth:'400px'
+ });
+ });
 </script>
 
 
@@ -102,4 +119,5 @@ elseif (!isset($_SESSION['user_id'])) {
 }
 require_once('includes/footer.php');
 ?>
+
 

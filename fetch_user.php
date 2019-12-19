@@ -18,7 +18,19 @@ else {
 <?php
 	$user_id = $_SESSION['user_id'];
 	//echo $user_id;
-	$query = "SELECT * FROM kid WHERE user_id != '$user_id'";
+	//$query = "SELECT * FROM kid WHERE user_id != '$user_id'";
+    
+    // $query= "SELECT * FROM `kid` WHERE user_id != '$user_id' AND trans_id = '$user_id'");
+     
+         $query = "SELECT * FROM `kid`
+                JOIN `kid_info` ON kid.user_id = kid_info.kid_id
+                JOIN `product` ON kid.user_id = product.kid_id
+                JOIN `transactions` ON product.product_id = transactions.product1_id OR product.product_id = transactions.product2_id
+            WHERE kid.user_id != '$user_id'"; 
+    
+   
+    
+    
 	$result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
 	else {
