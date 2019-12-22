@@ -22,7 +22,7 @@ if(isset($_SESSION['user_id'])) {
                         Upload</a>
                 </li>
                 <li>
-                    <a href="" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-search bottom_icons icon-color"></i><br>
+                    <a href="soeg.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-search bottom_icons icon-color"></i><br>
                         Søg</a>
                 </li>
                 <! <li>
