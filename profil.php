@@ -4,6 +4,7 @@ require_once('includes/header.php');
 if (isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
  
+    
 // Variabel der går ind og tæller hvor mange opslag du har i databasen
 $num_q = "SELECT COUNT(*) AS 'antal' FROM product
           WHERE kid_id = '$user_id'";
