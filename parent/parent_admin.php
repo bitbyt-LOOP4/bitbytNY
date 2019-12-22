@@ -23,6 +23,7 @@
                 $efternavn1 = $row1['last_name'];
                 $alder1 = $row1['age'];
                 $username1 = $row1['username'];
+                $user_id = $row1['kid_id'];
                 ?>
     <div class="container-fluid px-0 pb-5">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-0 mb-3 border-bottom">
@@ -60,7 +61,7 @@
 
                             <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>
 
-                            <img src="<?php echo $image_link;?> " class="bd-placeholder-img card-img-top" width="100%" height="225" alt="test">
+                            <img src="<?php echo "../" . $image_link;?> " class="bd-placeholder-img card-img-top" width="100%" height="225" alt="test">
                             <div class="card-body">
                                 <p class="card-text text-truncate">
                                     <?php echo $description ?>

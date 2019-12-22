@@ -25,6 +25,9 @@ if(isset($_SESSION['user_id'])) {
 </body>
 
 </html>
+<script>
+Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false;
+</script>
 ';
 } else {
         $footer = '

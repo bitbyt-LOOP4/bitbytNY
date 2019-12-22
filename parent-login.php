@@ -5,7 +5,7 @@ if(isset($_SESSION['user_id'])) {
     header('Location: feed.php');
 }
 if(isset($_SESSION['parent_id'])) {
-    header('Location: parent_admin.php');
+    header('Location: ./parent/parent_admin.php');
 } 
 if (isset($_COOKIE['login-parent'])) {
 	$parent_email = $_COOKIE['login-parent'];
@@ -41,10 +41,10 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
                     $cookie_name = 'login-parent';
                     $cookie_value = $parent_email;
                     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-                    header('Location: parent_admin.php');
+                    header('Location: ./parent/parent_admin.php');
                 }
                 else {
-                    header('Location: parent_admin.php');
+                    header('Location: ./parent/parent_admin.php');
                 }
             }
         }
