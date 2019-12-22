@@ -27,7 +27,7 @@ $user_id = $_SESSION['user_id'];
         $trans_id = $_POST["trans_id"];
         $query = "UPDATE transactions 
                       SET kid_approve = '2'  
-                      WHERE trans_id = '1'";
+                      WHERE trans_id = '$trans_id'";
             $result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
     }

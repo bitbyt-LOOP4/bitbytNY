@@ -105,7 +105,7 @@ if(isset($_SESSION['user_id'])) {
             $('.view_data').click(function() {
                 var product_id = $(this).attr("id");
                 $.ajax({
-                    url: "popup.php",
+                    url: "vis_vare.php",
                     method: "post",
                     data: {
                         product_id: product_id
