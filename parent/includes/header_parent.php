@@ -19,9 +19,9 @@ $pg = basename(substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'.')))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS -------------------------------------------------->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
     <!-- Vores CSS ------------------------------------------------------>
-    <link rel="stylesheet" href="styles/style-parent.css">
+    <link rel="stylesheet" href="../styles/style-parent.css">
     <!-- Kilde til fontawesome ikoner ----------------------------------->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Google fonts ----->
