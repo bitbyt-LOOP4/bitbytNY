@@ -31,17 +31,14 @@ if (isset($_POST["bytcoin"])){
         if (!$result) {  die (mysqli_error($con));  
             echo "FEJL";
              }
-            
-        else  
+         elseif ($bytcoin == NULL){
+             echo "Venligst indtast hvor mange bytcoins du ønsker at købe.";
+         }   
+        else { 
             echo "Du har nu overført " . $bytcoin . " Bytcoins!" . "<br>" . $first_name . " " . $last_name . " har nu " . ($bytcoin+$bytcoin1) . " Coins! ";
-
-       
+        }
     }
 }
-
-
-
-
 ?>
 
 
