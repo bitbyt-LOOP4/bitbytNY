@@ -32,7 +32,7 @@
             <div class="col-md-8 mb-4"><select name="product_id_1" class="custom-select">
                     <option selected value="">Vælg en vare du vil bytte</option>
                     <?php 
-                        $query = "SELECT * From product WHERE kid_id = '".$_POST["user_id"]."'";    
+                        $query = "SELECT * From product WHERE kid_id != '".$_POST["user_id"]."'";    
                         $result = mysqli_query($con, $query);
                         $rows = mysqli_num_rows($result);
                             
