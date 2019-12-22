@@ -169,7 +169,7 @@ if (!$result) die(mysqli_error($con));
                 $('.view_data').click(function() {
                     var product_id = $(this).attr("id");
                     $.ajax({
-                        url: "popup.php",
+                        url: "vis_vare.php",
                         method: "post",
                         data: {
                             product_id: product_id
