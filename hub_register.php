@@ -26,16 +26,30 @@ function get_post($con, $var) {
             <label>Vælg de hubs som du ønsker at benytte</label><br>
             <select name="hub1[]" id="hub_post" data-title="Hubs" class="selectpicker" multiple data-live-search="true" data-selected-text-format="count" data-none-results-text='Kan ikke finde et resultat. <br> Start en ny hub nedenfor:'>
                 <?php 
-                    $query = "SELECT * from hubs ORDER BY postal_code";    
+                    $query = "SELECT * FROM hubs ORDER BY postal_code";    
                     $result = mysqli_query($con, $query);
                     $rows = mysqli_num_rows($result);
                             while($row = mysqli_fetch_assoc($result)) {
                                 $hub_id = $row['hub_id'];
                                 $postal_code = $row['postal_code'];
                                 $hub_name = $row['hub_name'];
-                   ?>
+                                
+                            
+                                           ?>
 
-                <option value="<?php echo $hub_id;?>"><?php echo $postal_code . ' - '?> <?php echo $hub_name;?></option>
+                <option <?php 
+                                $query5 = "SELECT * FROM kid_hub
+                                        WHERE kid_id = '$user_id' AND hub_id = '$hub_id'";
+                                $result5 = mysqli_query($con, $query5);
+                                if (!$result5) die(mysqli_error($con));
+                                else {
+                                    $row5 = mysqli_fetch_assoc($result5);
+                                    
+                                    if($row5 > 0) {echo 'selected="selected"';}
+                                
+                                }
+                            
+                        ?> value="<?php echo $hub_id;?>"><?php echo $postal_code . ' - '?> <?php echo $hub_name;?></option>
 
                 <?php
          }
@@ -90,8 +104,21 @@ function get_post($con, $var) {
 			else if ($rows == 0) {
 				$query = "INSERT INTO hubs(hub_name, postal_code) VALUES('$hub_name', '$postal_code')";
 				$result = mysqli_query($con, $query);
-				if (!$result) die(mysqli_error($con));
+                if(!$result) die(mysqli_error($con));
 				else {
+                    
+            $query3 = "SELECT * from hubs WHERE hub_name = '$hub_name' AND postal_code = '$postal_code'";    
+            $result3 = mysqli_query($con, $query3);
+            if (!$result3){ die(mysqli_error($con));}
+            else { 
+            $row3 = mysqli_fetch_assoc($result3); 
+            $hub_id = $row3['hub_id'];
+            $query2 = "INSERT INTO kid_hub(hub_id, kid_id) VALUES ('$hub_id', '$user_id')";
+            $result2 = mysqli_query($con, $query2);
+                 }
+
+            
+                        
 					?>
         <div class="container form">
             <form class="form-signin" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
@@ -105,8 +132,9 @@ function get_post($con, $var) {
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register Hub</button>
             </form>
             <?php
-					echo "<p class='registered'>Hub registeret</p>";
-				}
+					echo "<p class='registered'>Hub registeret og du er det første medlem</p>";
+				
+                }
 			}
 		}
 	}

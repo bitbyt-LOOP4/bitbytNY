@@ -28,14 +28,12 @@ if(isset($_SESSION['user_id'])) {
             
   
             <ul class="nav navbar-right">
-            <li>
-            <br>
-            <a href="parent-login.php" class="nav-link my-2 icon-navbar icon_text bytcoin">
-            ' . $bytcoin . '
-            <img src="images/bitcoin (1).svg" class="coin">
-                         </a>
-          
-            </li>
+                <li>
+                    <a href="parent-login.php" class="nav-link my-3 pr-2 icon-navbar icon_text bytcoin"> ' . $bytcoin . ' 
+                          <img style="width: 20px" src="images/bitcoin (1).svg">
+                    </a>
+                  
+                </li>
                 <li>
                     <a href="feed.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-home bottom_icons icon-color"></i><br>
                         Hjem </a>
