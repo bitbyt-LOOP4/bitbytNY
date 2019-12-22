@@ -32,6 +32,7 @@ $user_id = $_SESSION['user_id'];
 	if (!$result) die(mysqli_error($con));
     }
 ?>
+
 <!-- Simon -->
 <!-- Feed som viser hvad andre tilbyder dig i bytte for en af dine ting ------->
 
