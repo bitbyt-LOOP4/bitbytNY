@@ -3,6 +3,9 @@
 
  if(isset($_POST["product_id"]))  
  {  
+     
+     $user_id = $_POST["user_id"];
+     echo $user_id;
       require_once('conn.php');  
      $query = "SELECT * FROM product WHERE product_id = '".$_POST["product_id"]."'";  
 
@@ -25,6 +28,7 @@
         <div class="modal-body">
             <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top modal-popup" alt="Lego">
             <p><?php echo $description?></p>
+           
 
         </div>
         <div class="modal-footer">
@@ -32,7 +36,7 @@
             <div class="col-md-8 mb-4"><select name="product_id_1" class="custom-select">
                     <option selected value="">Vælg en vare du vil bytte</option>
                     <?php 
-                        $query = "SELECT * From product WHERE kid_id != '".$_POST["user_id"]."'";    
+                        $query = "SELECT * FROM product WHERE kid_id = '".$_POST["user_id"]."'";    
                         $result = mysqli_query($con, $query);
                         $rows = mysqli_num_rows($result);
                             

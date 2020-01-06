@@ -180,7 +180,7 @@ $user_id = $_SESSION['user_id'];
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-sm btn-outline-secondary view_data" user="<?php  echo $user_id?>" id="<?php  echo $row['product_id']?>">Se vare</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary data_view" user="<?php  echo $user_id?>" id="<?php  echo $row['product_id']?>">Se vare</button>
 
                         </div>
                         <small class=" text-muted">Rørkjær Skole</small>
@@ -211,7 +211,7 @@ $user_id = $_SESSION['user_id'];
 <script>
     $(document).ready(function() {
         console.log("ready!");
-        $('.view_data').click(function() {
+        $('.data_view').click(function() {
             var user_id = $(this).attr("user");
             var product_id = $(this).attr("id");
             $.ajax({
