@@ -64,20 +64,23 @@
                     <div Class="container">
                         <div class="row">
                             <div class="col-md-5">
-                                <h3>Anmoders vare:</h3>
-                                <h4><?php echo $product_name?></h4>
-                                <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top modal-popup mb-1" alt="Lego">
+                                <h4 class="pb-0 mb-0">Anmoders varer:</h4>
+                                <hr class="mt-1">
+                                <h5><?php echo $product_name?></h5>
+                                <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top modal-popup-trans mb-1" alt="Lego">
                                 <p><?php echo $description?></p>
                             </div>
 
 
-                            <i class="fas fa-exchange-alt col-md-2"></i>
+                            <i class="fas fa-exchange-alt exchange col-md-2 d-none d-md-block"></i>
+                            <i class="fas fa-exchange-alt exchange-2 col-md-2 d-md-none"></i>
 
 
                             <div class="col-md-5">
-                                <h3>Din vare:</h3>
-                                <h4><?php echo $product1_name?></h4>
-                                <img src="<?php echo $image1_link?>" class="bd-placeholder-img card-img-top modal-popup mb-1" alt="Lego">
+                                <h4 class="pb-0 mb-0">Din vare:</h4>
+                                <hr class="mt-1">
+                                <h5><?php echo $product1_name?></h5>
+                                <img src="<?php echo $image1_link?>" class="bd-placeholder-img card-img-top modal-popup-trans mb-1" alt="Lego">
                                 <p><?php echo $description1?></p>
                             </div>
                         </div>
@@ -89,7 +92,7 @@
 
                 <input type="hidden" name="trans_id" value="<?php echo $_POST["product_id"] ?>" />
                 <button type="submit" name="godkendtsubmit" class="btn btn-success btn-block">Godkend</button>
-                <button type="submit" name="afvissubmit" class="btn btn-danger btn-block">Afvis</button>
+                <button type="submit" name="afvissubmit" class="btn btn-danger btn-block m-0">Afvis</button>
             </div>
         </div>
     </div>

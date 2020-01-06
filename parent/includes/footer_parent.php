@@ -22,7 +22,10 @@
     });
 
 </script>
+<script>
+    Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false;
 
+</script>
 </body>
 
 </html>
