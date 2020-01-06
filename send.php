@@ -103,3 +103,24 @@ elseif (!isset($_SESSION['user_id'])) {
 require_once('includes/footer.php');
 ?>
 
+
+
+
+<?php
+
+
+if(isset($_POST["framework"]))
+{
+ $framework = '';
+ foreach($_POST["framework"] as $row)
+ {
+  $framework .= $row . ', ';
+ }
+ $framework = substr($framework, 0, -2);
+ $query = "INSERT INTO like_table(framework) VALUES('".$framework."')";
+ if(mysqli_query($connect, $query))
+ {
+  echo 'Data Inserted';
+ }
+}
+?>
