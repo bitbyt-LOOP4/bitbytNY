@@ -56,7 +56,7 @@
                     $product_id = $row['product_id'];
                     $placeholder = '';
         ?>
-                    <div class="col-md-4 col-lg-3 feed-card pb-4">
+                    <div class="col-md-6 col-lg-6 feed-card pb-4">
                         <div class="card mb-4 shadow-sm h-100">
 
                             <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>

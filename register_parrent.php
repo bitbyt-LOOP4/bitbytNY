@@ -61,10 +61,8 @@ require_once('includes/header.php');
 </head>
 
 <body>
-    <header class="pt-3 text-center">
-        <h1>Bruger registrering</h1>
-    </header>
-    <div class="container pt-3">
+
+    <div class="container pt-5">
         <div class="row">
             <div class="col-md-3">
 
@@ -72,35 +70,35 @@ require_once('includes/header.php');
 
             <fieldset class="col-md-6">
 
-                <h2>Forældre registrering</h2>
+                <h2 class="pb-3">Forældre registrering</h2>
 
                 <form class="needs-validation" novalidate method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                     <div class="form-row">
                         <div class="col-md-6 mb-4">
                             <label for="validationCustom01">Fornavn</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="fornavn" name="first_name" required>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Fornavn" name="first_name" required>
                             <div class="invalid-feedback"> Indtast venligst dit fornavn. </div>
 
                         </div>
                         <div class="col-md-6 mb-4">
                             <label for="validationCustom02">Efternavn</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="efternavn" name="last_name" required>
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="Efternavn" name="last_name" required>
                             <div class="invalid-feedback"> Indtast venligst dit efternavn. </div>
 
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <label for="validationCustom04">Post nr.</label>
-                            <input type="phone" class="form-control" id="validationCustom04" placeholder="0000" name="post_code" required>
-                            <div class="invalid-feedback"> Indtast venligst dit post nr. </div>
+                            <label for="validationCustom04">Postnummer</label>
+                            <input type="phone" class="form-control" id="validationCustom04" placeholder="****" name="post_code" required>
+                            <div class="invalid-feedback"> Indtast venligst dit postnummer </div>
                         </div>
 
 
                         <div class="col-md-6 mb-4">
-                            <label for="validationCustomEmail">E-Mail</label>
+                            <label for="validationCustomEmail">E-mail</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"> <span class="input-group-text" id="inputGroupPrepend">@</span> </div>
-                                <input type="email" class="form-control" id="validationCustomUsername" placeholder="email" aria-describedby="inputGroupPrepend" name="email" required>
+                                <input type="email" class="form-control" id="validationCustomUsername" placeholder="E-mail" aria-describedby="inputGroupPrepend" name="email" required>
                                 <div class="invalid-feedback"> Indtast venligst en valid e-mail addresse. </div>
                             </div>
                         </div>
@@ -118,11 +116,11 @@ require_once('includes/header.php');
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck"> Accepter <a href="terms.php" target="_blank">terms and conditions</a></label>
+                            <label class="form-check-label" for="invalidCheck"> Accepter <a href="terms.php" target="_blank">vilkår og regler</a></label>
                             <div class="invalid-feedback"> Du skal acceptere vilkår og regler før oprettelse. </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Registrer</button>
+                    <button class="btn btn-registrer" type="submit">Opret</button>
                 </form>
                 <br><br>
 
