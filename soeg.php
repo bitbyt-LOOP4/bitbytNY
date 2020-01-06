@@ -25,16 +25,16 @@ $user_id = $_SESSION['user_id'];
 <!-- Feed som viser random artikler ------------------------------>
 
 
-
+<div class="container">
     <!-- Search form -->
-    <form class="form-inline md-form form-sm mt-0 bar">
+    <form class="form-inline md-form form-sm mt-0 ">
   <i class="fas fa-search" aria-hidden="true"></i>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+  <input class="form-control form-control-sm ml-3 w-75 bar center" type="text" placeholder="Search"
     aria-label="Search" >
         <button class="sub">sss</button>
 </form>
     
-    
+</div>   
     
     
     
