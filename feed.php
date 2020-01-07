@@ -9,7 +9,36 @@ $user_id = $_SESSION['user_id'];
         $product_id_1 = $_POST['product_id_1'];
         $product_id_2 = $_POST['product_id_2'];
         
-        $query = "INSERT INTO transactions(product1_id, product2_id) VALUES('$product_id_1', '$product_id_2')";
+        $query1 = mysqli_query($con, "SELECT * FROM `product` WHERE product_id = '$product_id_1'");
+        $row1 = mysqli_fetch_assoc($query1);
+        $kid_id_1 = $row1['kid_id'];
+        
+        
+        $query2 = mysqli_query($con, "SELECT * FROM `product` WHERE product_id = '$product_id_2'");
+        $row2 = mysqli_fetch_assoc($query2);
+        $kid_id_2 = $row2['kid_id'];
+        
+        /*$query2 = "SELECT kid_id FROM `product`
+                    WHERE product_id = '$product_id_1'";
+        
+        $result2 = mysqli_query($con, $query2);  
+        if (!$result2) die(mysqli_error($con)); 
+        while($row = mysqli_fetch_array($result2))  
+        {  
+            $kid_id_1 = $row['kid_id'];
+        }
+        
+        $query3 = "SELECT kid_id FROM `product`
+                    WHERE product_id = '$product_id_2'";
+        
+        $result3 = mysqli_query($con, $query3);  
+        if (!$result3) die(mysqli_error($con)); 
+        while($row = mysqli_fetch_array($result2))  
+        {  
+            $kid_id_2 = $row['kid_id'];
+        }
+        */
+        $query = "INSERT INTO transactions (product1_id, product2_id, kid_id_1, kid_id_2) VALUES('$product_id_1', '$product_id_2', '$kid_id_1', $kid_id_2)";
         $result = mysqli_query($con, $query);
 	if (!$result) die(mysqli_error($con));
     }
@@ -58,16 +87,16 @@ $user_id = $_SESSION['user_id'];
                      
            	 if ($rows > 0) { 
                  ?>
-        
-                <header class="container p-5 d-none d-sm-block">
+
+        <header class="container p-5 d-none d-sm-block">
             <h1 class="display-4">Det tilbyder andre dig</h1>
         </header>
         <header class="container-fluid pb-5 pt-4 d-sm-none">
             <h1 class="display-6">Det tilbyder andre dig</h1>
         </header>
-        
-                 
-                 
+
+
+
         <?php         
                 while($row = mysqli_fetch_array($result)) {
                     $product_name = $row['product_name'];
@@ -89,7 +118,7 @@ $user_id = $_SESSION['user_id'];
                 <div class="card-body">
                     <p class="card-text text-truncate">
                         <?php echo $description ?>
-                        
+
 
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
