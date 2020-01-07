@@ -1,32 +1,37 @@
 <?php
-require_once('includes/header.php');
+//require_once('includes/header.php');
 if(!isset($_SESSION)) session_start();
 require_once('conn.php');
 //require_once('connnect.php');
-require_once('includes/header.php');
+//require_once('includes/header.php');
 if(!isset($_SESSION['user_id'])) {
 	header("location:user-log-in.php");
 }
 else {
 ?>
-		<table class="table table-bordered table-striped">
-			<tr class="bg-info text-white">
-				<td>Username</td>
-				<td>Status</td>
-				<td>Action</td>
-			</tr>
-<?php
+<table class="table table-bordered table-striped">
+    <tr class="bg-info text-white">
+        <td>Username</td>
+        <td>Status</td>
+        <td>Action</td>
+    </tr>
+    <?php
 	$user_id = $_SESSION['user_id'];
 	//echo $user_id;
 	//$query = "SELECT * FROM kid WHERE user_id != '$user_id'";
     
     // $query= "SELECT * FROM `kid` WHERE user_id != '$user_id' AND trans_id = '$user_id'");
      
-         $query = "SELECT * FROM `kid`
+          $query = "SELECT * FROM `kid` 
+            JOIN `kid_info` ON  kid.user_id = kid_info.kid_id
+            JOIN `transactions` ON kid.user_id = transactions.kid_id_2 OR kid.user_id = transactions.kid_id_1
+        WHERE transactions.kid_id_1 = '$user_id' AND kid.user_id != '$user_id' OR transactions.kid_id_2 = '$user_id' AND kid.user_id != '$user_id'";
+    
+      /*   $query = "SELECT * FROM `kid`
                 JOIN `kid_info` ON kid.user_id = kid_info.kid_id
                 JOIN `product` ON kid.user_id = product.kid_id
                 JOIN `transactions` ON product.product_id = transactions.product1_id OR product.product_id = transactions.product2_id
-            WHERE kid.user_id != '$user_id'"; 
+            WHERE kid.user_id != '$user_id'"; */
     
    
     
@@ -56,7 +61,7 @@ else {
 			}
 		}
 			?>
-		</table>
+</table>
 <?php
 		}
 	}
