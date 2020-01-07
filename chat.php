@@ -13,29 +13,27 @@ $username = $_SESSION['user_id'];
 
 
 <!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Dosis|Exo+2|Hind+Siliguri" rel="stylesheet">
-<!-- Bootstrap core CSS -->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css">
-<!-- Custom styles for this template -->
+	<!-- Bootstrap core CSS -->
 
-<!-- JS -->
+	<!-- Custom styles for this template -->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.css" rel="stylesheet" type="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.js"></script>
+	<!-- JS -->
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.css" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.js"></script>
 
 
 <body>
     <div class="container">
         <br />
 
-        <h3 align="center">Chat System</h3><br />
+        <h3 align="center">Chat</h3><br />
         <br />
 
         <div class="table-responsive">
-            <h4 align="center">Registered Users</h4>
-            <p align="right">Hi -
-                <?php echo $username;  ?> - <a href="logout.php">Logout</a></p>
             <div id="user_details"></div>
             <div id="user_model_details"></div>
         </div>

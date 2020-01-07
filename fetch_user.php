@@ -11,9 +11,9 @@ else {
 ?>
 <table class="table table-bordered table-striped">
     <tr class="bg-info text-white">
-        <td>Username</td>
+        <td>Brugernavn</td>
         <td>Status</td>
-        <td>Action</td>
+        <td></td>
     </tr>
     <?php
 	$user_id = $_SESSION['user_id'];
