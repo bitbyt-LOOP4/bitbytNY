@@ -1,6 +1,6 @@
 <?php
 require_once('conn.php');
-require_once('includes/header.php');
+//require_once('includes/header.php');
 if(!isset($_SESSION['user_id']))
 {
  header("location:user-log-in.php");
