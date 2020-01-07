@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$database = "bitbyt";
+$database = "bitbytdk";
 $username = "admin_user";
 $password = "1234";
 ?>

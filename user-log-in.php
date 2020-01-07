@@ -34,6 +34,24 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             }
             if ($token == $password) {
                 $_SESSION['user_id'] = $user_id;
+                
+                	
+        			$_SESSION['username'] = $username;
+					$ses_user = $_SESSION['user_id'];
+					$ses_username = $_SESSION['username'];
+					$query2 = "INSERT INTO login_details(user_id) VALUES('$ses_user')";
+					$result2 = mysqli_query($con, $query2);
+					if (!$result2) die(mysqli_error($con));
+					else {
+						$_SESSION["login_details_id"] = mysqli_insert_id($con);
+					}
+				
+                
+                
+                
+                
+                
+                
                 if (isset($_POST['remember'])) {
                     $cookie_name = 'login';
                     $cookie_value = $kid_username;
