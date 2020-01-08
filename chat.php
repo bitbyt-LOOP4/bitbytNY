@@ -1,5 +1,5 @@
 <?php
-
+$page='Chat';
 require_once('includes/header.php');
 //require_once('connect-chat.php');
 if(!isset($_SESSION)) session_start();
@@ -14,16 +14,16 @@ $username = $_SESSION['user_id'];
 
 <!--Google Fonts-->
 
-	<!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS -->
 
-	<!-- Custom styles for this template -->
+<!-- Custom styles for this template -->
 
-	<!-- JS -->
-	
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.css" rel="stylesheet" type="text/css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.js"></script>
+<!-- JS -->
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.js"></script>
 
 
 <body>
@@ -72,8 +72,9 @@ $username = $_SESSION['user_id'];
         }
 
         function make_chat_dialog_box(to_user_id, to_user_name) {
-            var modal_content = '<div id="user_dialog_' + to_user_id + '" class="user_dialog" title="You are chatting with ' + to_user_name + '">';
-            modal_content += '<div style="height:150px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="' + to_user_id + '" id="chat_history_' + to_user_id + '">';
+
+            var modal_content = '<div style="font-size: 0.9rem;" id="user_dialog_' + to_user_id + '" class="user_dialog" title="Du chatter med ' + to_user_name + '">';
+            modal_content += '<div style="height:300px; border:1px solid #ccc; overflow-y: scroll; font-size: 0.8rem; margin-bottom:24px; padding:16px; " class="chat_history" data-touserid="' + to_user_id + '" id="chat_history_' + to_user_id + '">';
             modal_content += fetch_user_chat_history(to_user_id);
             modal_content += '</div>';
             modal_content += '<div class="form-group">';

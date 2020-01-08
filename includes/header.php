@@ -43,7 +43,8 @@ if(isset($_SESSION['user_id'])) {
                         Upload</a>
                 </li>
                 <li>
-                    <a href="./soeg.php" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-search bottom_icons icon-color"></i><br>
+
+                    <a href="" class="nav-link my-2 icon-navbar icon_text"><i class="fas fa-search bottom_icons icon-color"></i><br>
                         Søg</a>
                 </li>
                 <! <li>
@@ -86,7 +87,7 @@ if(isset($_SESSION['user_id'])) {
                 </a>
             </div>
             <div class="col-2 bottom_links text-center pt-4">
-                <a class="icon_text" href="">
+                <a class="icon_text" href="./chat.php">
                     <i class="fas fa-comment-dots bottom_icons"></i><br>
                     Beskeder
                 </a>
