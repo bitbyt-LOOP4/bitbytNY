@@ -88,11 +88,11 @@ $user_id = $_SESSION['user_id'];
            	 if ($rows > 0) { 
                  ?>
 
-        <header class="container p-5 d-none d-sm-block">
-            <h1 class="display-3">Det tilbyder andre dig</h1>
+        <header class="container p-5 d-none d-md-block">
+            <h1 class="display-4">Det tilbyder andre dig</h1>
         </header>
-        <header class="container-fluid pb-5 pt-4 d-sm-none">
-            <h1 class="display-3">Det tilbyder andre dig</h1>
+        <header class="container-fluid pb-5 pt-4 d-md-none">
+            <h1 class="display-5">Det tilbyder andre dig</h1>
         </header>
 
 
@@ -109,10 +109,10 @@ $user_id = $_SESSION['user_id'];
         ?>
 
 
-        <div class="col-lg-3">
+        <div class="col-md-4 col-lg-3 feed-card pb-4">
             <a class="card mb-4 shadow-sm view_trans" id="<?php  echo $row['trans_id']?>">
 
-                <h4> <?php echo $product_name?> </h4>
+                <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>
 
                 <img src="<?php echo $image_link;?> " class="bd-placeholder-img card-img-top" width="100%" height="225" alt="test">
                 <div class="card-body">
@@ -165,13 +165,14 @@ $user_id = $_SESSION['user_id'];
     });
 
 </script>
-
+<br>
+<hr>
 <!-- Feed som viser random artikler ------------------------------>
-<header class="container p-5 d-none d-sm-block">
+<header class="container p-5 d-none d-md-block">
     <h1 class="display-4">Hvad kunne du tænke dig?</h1>
 </header>
-<header class="container-fluid pb-5 pt-4 d-sm-none">
-    <h1 class="display-6">Hvad kunne du tænke dig?</h1>
+<header class="container-fluid pb-5 pt-4 d-md-none">
+    <h1 class="display-5">Hvad kunne du tænke dig?</h1>
 </header>
 
 
@@ -195,7 +196,7 @@ $user_id = $_SESSION['user_id'];
 			$price = $row['price'];
             $product_id = $row['product_id'];
 ?>
-        <a class="col-md-4 col-lg-3 feed-card pb-4 data_view" id="<?php  echo $row['product_id']?>">
+        <a class="col-md-4 col-lg-3 feed-card pb-4 data_view" id="<?php  echo $row['product_id']?>" user="<?php  echo $user_id?>">
             <div class="card mb-4 shadow-sm h-100">
 
                 <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>

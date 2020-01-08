@@ -5,7 +5,6 @@
  {  
      
     $user_id = $_POST["user_id"];
-   echo $user_id;
       require_once('conn.php');  
      $query = "SELECT * FROM product WHERE product_id = '".$_POST["product_id"]."'";  
 
@@ -26,14 +25,14 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top modal-popup" alt="Lego">
+            <img src="<?php echo $image_link?>" class="bd-placeholder-img card-img-top pop-up-image" alt="Lego">
             <p><?php echo $description?></p>
 
 
         </div>
         <div class="modal-footer">
 
-            <div class="col-md-8 mb-4"><select name="product_id_1" class="custom-select">
+            <div class="col-md-8"><select name="product_id_1" class="custom-select">
                     <option selected value="">Vælg en vare du vil bytte</option>
                     <?php 
                         $query = "SELECT * FROM product WHERE kid_id = '".$_POST["user_id"]."'";    
@@ -57,7 +56,7 @@
 
             </div>
 
-            <button type="submit" name="submit" class="btn btn-default btn-block">Anmod om byttehandel</button>
+            <button type="submit" name="submit" class="btn btn-info btn-block">Anmod om byttehandel</button>
         </div>
     </div>
 
