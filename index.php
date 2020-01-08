@@ -62,7 +62,7 @@ if(isset($_SESSION['user_id'])) {
 			$price = $row['price'];
             $product_id = $row['product_id'];
 ?>
-            <div class="col-md-6 col-lg-3 feed-card pb-4">
+            <a class="col-md-6 col-lg-3 feed-card pb-4 view_data" id="<?php  echo $row['product_id']?>">
                 <div class="card mb-4 shadow-sm h-100">
 
                     <h4 class="m-2 text-truncate"> <?php echo $product_name?> </h4>
@@ -84,7 +84,7 @@ if(isset($_SESSION['user_id'])) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
             <?php 
         }
     } 

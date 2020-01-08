@@ -89,10 +89,10 @@ $user_id = $_SESSION['user_id'];
                  ?>
 
         <header class="container p-5 d-none d-sm-block">
-            <h1 class="display-4">Det tilbyder andre dig</h1>
+            <h1 class="display-3">Det tilbyder andre dig</h1>
         </header>
         <header class="container-fluid pb-5 pt-4 d-sm-none">
-            <h1 class="display-6">Det tilbyder andre dig</h1>
+            <h1 class="display-3">Det tilbyder andre dig</h1>
         </header>
 
 
