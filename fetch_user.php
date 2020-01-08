@@ -9,13 +9,14 @@ if(!isset($_SESSION['user_id'])) {
 }
 else {
 ?>
-<table class="table table-bordered table-striped">
-    <tr class="bg-info text-white">
-        <td>Brugernavn</td>
-        <td>Status</td>
-        <td></td>
-    </tr>
-    <?php
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <tr class="bg-info text-white">
+            <td>Brugernavn</td>
+            <td>Status</td>
+            <td></td>
+        </tr>
+        <?php
 	$user_id = $_SESSION['user_id'];
 	//echo $user_id;
 	//$query = "SELECT * FROM kid WHERE user_id != '$user_id'";
@@ -49,10 +50,10 @@ else {
  				$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
  				$user_last_activity = fetch_user_last_activity($user_id1, $con);
  				if ($user_last_activity > $current_timestamp) {
-					$status = '<span class="alert alert-success">Online</span>';
+					$status = '<button class="alert alert-success m-0 p-2" disabled>Online</button>';
 				}
 				else {
-					$status = '<span class="alert alert-danger">Offline</span>';
+					$status = '<button class="alert alert-danger m-0 p-2" disabled>Offline</button>';
 				}
 				echo "<tr><td>" . $username . " " . count_unseen_message($user_id1,  $user_id, $con) . " " . fetch_is_type_status($user_id1, $con) ."</td>";
   				echo "<td>" . $status . "</td>";
@@ -61,7 +62,8 @@ else {
 			}
 		}
 			?>
-</table>
+    </table>
+</div>
 <?php
 		}
 	}
