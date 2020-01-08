@@ -57,7 +57,14 @@
 
             </div>
 
-            <button type="submit" name="submit" class="btn btn-default btn-block">Anmod om byttehandel</button>
+            <button type="submit" name="submit" onclick="myFunction()" class="btn btn-default btn-block">Anmod om byttehandel</button>
+            
+
+<script>
+function myFunction() {
+  alert("Du kan nu chatte med vedkommende og aftale nærmere");
+}
+</script>
         </div>
     </div>
 
