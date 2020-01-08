@@ -68,7 +68,7 @@
             if(!$result)
             die(mysqli_error($con));
             else {
-             header("Location: parent_admin.php");
+             header("Location: parent_dine_born.php");
          }
             }
             ?>

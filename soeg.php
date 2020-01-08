@@ -31,7 +31,7 @@ $user_id = $_SESSION['user_id'];
   <i class="fas fa-search" aria-hidden="true"></i>
   <input class="form-control form-control-sm ml-3 w-75 bar center" type="text" placeholder="Search"
     aria-label="Search" >
-        <button class="sub">sss</button>
+        <button class="sub">søg</button>
 </form>
     
 </div>   

@@ -72,6 +72,7 @@ $username = $_SESSION['user_id'];
         }
 
         function make_chat_dialog_box(to_user_id, to_user_name) {
+
             var modal_content = '<div style="font-size: 0.9rem;" id="user_dialog_' + to_user_id + '" class="user_dialog" title="Du chatter med ' + to_user_name + '">';
             modal_content += '<div style="height:300px; border:1px solid #ccc; overflow-y: scroll; font-size: 0.8rem; margin-bottom:24px; padding:16px; " class="chat_history" data-touserid="' + to_user_id + '" id="chat_history_' + to_user_id + '">';
             modal_content += fetch_user_chat_history(to_user_id);
